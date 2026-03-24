@@ -1,3 +1,9 @@
+import express from "express";
+import fetch from "node-fetch";
+
+const app = express();
+app.use(express.json());
+
 app.post("/webhook", async (req, res) => {
   console.log("Webhook hit:", JSON.stringify(req.body, null, 2));
 
@@ -13,7 +19,7 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer EAALWwvfLWxcBRPEDSHNqhCJvd5DdLLWGFZCpuk81XG7dVrZBdY1sCKdOapXfC5Lfo8KDXpBy8nQ44fmJT4Oo31WEbJWqBz3UG2CyNwt4yadDWue9V7pjlBfoBhT7XSs0nVWQ8Ws3anSfaksugUiPayyIYw8As5GFkx9rmG3aLEX11YxOQNbwVVCoEGTZBBtrHad6QUQVZC0Ley3d57eV1zu1n7bCuKJDPlbvqzgvCqTKDnTZCuT2E72h7ZCkRhZBKXMz9M9Hm8RR4rUHAMbC1Axl7sL",
+          Authorization: "Bearer EAALWwvfLWxcBRDS0sCCL2UhCUk0qlObpSbFktJLW3Iiih9Wg0MuE4l2CjrsfdwbvI7GnZBRoIVkkznHm2vTkvXC3VMLSwEt8O5ES3ZAJpZALOHb0G0KSxsEnwwu1oWx4ZA1fJZC3ZAZAfxBzArbHhhYzrtwhQpycojHrjfsqNutaUaxHKq7VnZABRDaGmD5V3xJZBFSeY0lE8qVrOruDCC2Tim81HRfvfVaEJfNUyTsHdc5HZAdyrhWIxVhlnjKTWTRFfBle7KAXRR6RN9zNuHvyW4IiVyegZDZD
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
@@ -29,4 +35,7 @@ app.post("/webhook", async (req, res) => {
   }
 
   res.sendStatus(200);
+});
+app.listen(10000, () => {
+  console.log("Server running on port 10000");
 });
