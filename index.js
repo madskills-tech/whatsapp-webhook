@@ -19,7 +19,7 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer YOUR_ACCESS_TOKEN",
+          Authorization: "Bearer EAALWwvfLWxcBRN61su0FUA6SpDkQanarP8Tv7HDhsff8ZAkfpU8ypdfDwT8qZAIIUjcp1wtzT0LCyFr5BYONZBSizpkyaEIsixsXYYSIrVjM3C69HpmXidYQJKUdSiPkIyeCqCYfBXi7WMQJ12LQWEifDxyNLZCG3cNPyoGxLIGyiqGBbFoI4tGtTHC3iaKlwahBF8AGixo4adnHPU2zIJquAoHaI2g2Wqu5iNsUJ7XjQWHyA3JZB5ZCTtw1SO4wnD9CLa3zRABkTnoXvfyaGOVSljmwZDZD",
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
