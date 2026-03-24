@@ -3,14 +3,15 @@ const app = express();
 
 app.use(express.json());
 
-// Home route
+// Home
 app.get("/", (req, res) => {
   res.send("Server chal raha hai 🚀");
 });
 
-// 🔐 Webhook verification (GET)
+// VERIFY TOKEN
 const VERIFY_TOKEN = "mytoken";
 
+// Webhook verification
 app.get("/webhook", (req, res) => {
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
@@ -23,12 +24,15 @@ app.get("/webhook", (req, res) => {
   }
 });
 
-// 📩 Webhook receive messages (POST)
+// RECEIVE MESSAGE
 app.post("/webhook", (req, res) => {
-  console.log("Webhook hit:", JSON.stringify(req.body, null, 2));
+  console.log("🔥 FULL DATA:", JSON.stringify(req.body, null, 2));
+
   res.sendStatus(200);
 });
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Server running on port", PORT));
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});
