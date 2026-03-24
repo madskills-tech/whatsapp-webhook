@@ -1,5 +1,5 @@
-import express from "express";
-import fetch from "node-fetch";
+const express = require("express");
+const fetch = require("node-fetch");
 
 const app = express();
 app.use(express.json());
@@ -19,11 +19,11 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer EAALWwvfLWxcBRDS0sCCL2UhCUk0qlObpSbFktJLW3Iiih9Wg0MuE4l2CjrsfdwbvI7GnZBRoIVkkznHm2vTkvXC3VMLSwEt8O5ES3ZAJpZALOHb0G0KSxsEnwwu1oWx4ZA1fJZC3ZAZAfxBzArbHhhYzrtwhQpycojHrjfsqNutaUaxHKq7VnZABRDaGmD5V3xJZBFSeY0lE8qVrOruDCC2Tim81HRfvfVaEJfNUyTsHdc5HZAdyrhWIxVhlnjKTWTRFfBle7KAXRR6RN9zNuHvyW4IiVyegZDZD
+          Authorization: "Bearer EAALWwvfLWxcBRDS0sCCL2UhCUk0qlObpSbFktJLW3Iiih9Wg0MuE4l2CjrsfdwbvI7GnZBRoIVkkznHm2vTkvXC3VMLSwEt8O5ES3ZAJpZALOHb0G0KSxsEnwwu1oWx4ZA1fJZC3ZAZAfxBzArbHhhYzrtwhQpycojHrjfsqNutaUaxHKq7VnZABRDaGmD5V3xJZBFSeY0lE8qVrOruDCC2Tim81HRfvfVaEJfNUyTsHdc5HZAdyrhWIxVhlnjKTWTRFfBle7KAXRR6RN9zNuHvyW4IiVyegZDZD", // 👈 yaha daal
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
-          to: from,   // ✅ YE IMPORTANT HAI
+          to: from,
           text: { body: reply },
         }),
       });
@@ -36,6 +36,7 @@ app.post("/webhook", async (req, res) => {
 
   res.sendStatus(200);
 });
+
 app.listen(10000, () => {
   console.log("Server running on port 10000");
 });
