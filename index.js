@@ -1,3 +1,8 @@
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb+srv://skillsservicesdxb_db_user:7wHegUk0hWXtVBiy@cluster0.9f6r6ts.mongodb.net/?appName=Cluster0")
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 const express = require("express");
 const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
