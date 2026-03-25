@@ -45,8 +45,7 @@ console.log("Saved in DB:", text);
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "BearerEAALWwvfLWxcBRJ8PEmVm2FHLIUVp52wNjz0ULiD5MZBzg55xDJ0xYSSjOeZBycOrUmjCfVmwHRFf5PYRs3bY1uBjXOntP5fRbwSCwPjXZCJnEy93DhNg7viwE2gxZC6o5CcQ2HaxUTAKmZBZBZBPJc4WbZCZAJri1MN1iO81KjDZBpRrgrrfx2SlsXkPt7SIBg7JiHKswjUYqOYbvJCyPzItZBqUaKBwLbVAvZBdcTUICFbRizR9SnYW1UOBSMQZBxH0uZCNrp5e43NRm6gq2EEClsvEkmlHZAExwEZD"
-        },
+          Authorization: "Bearer EAALWwvfLWxcBRKu0byiDOYTaNbV74QZC9yBnvW86fFAzamjQ49W3d9Gj6p3nv7qjEDTKTk8ZAnWof2xl8bznJpcrk9KkhyGJiFtHrTU9x27skzqmkaSR98MPwuY9rwCgcMkAsaEzi8ZAJYdlRNCfGNSxsPiceXfJrkF97c8POb6U1Y99L08TH9NtzYQAs1cbbnRKZABWOEmb6iBTYdGXzkPt5ZANKHnWZCuFM8ukYOZCpo3hsmmxlI8goQmhyr0rnpqgOaOjDFjpmFlQn0SNpNopK7Q"
         body: JSON.stringify({
           messaging_product: "whatsapp",
           to: from,
