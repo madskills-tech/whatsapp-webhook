@@ -49,7 +49,7 @@ console.log("Saved in DB:", text);
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
-          to: to,
+          to: from,
           text: { body: message },
         }),
       });
