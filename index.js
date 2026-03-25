@@ -67,7 +67,15 @@ app.get("/messages", async (req, res) => {
   const messages = await Message.find().sort({ timestamp: -1 });
   res.json(messages);
 });
+app.post("/reply", async (req, res) => {
+  const { to, message } = req.body;
 
+  console.log("Reply:", to, message);
+
+  // 👉 yaha tera WhatsApp API call aayega
+  // abhi ke liye test response
+  res.json({ success: true });
+});
 app.listen(10000, () => {
   console.log("Server running on port 10000");
 });
