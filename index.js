@@ -16,6 +16,15 @@ app.post("/webhook", async (req, res) => {
 
   if (message) {
     const from = message.from;
+    const text = message.text?.body || "non-text";
+
+await Message.create({
+  from: from,
+  message: text,
+  timestamp: new Date()
+});
+
+console.log("Saved in DB:", text);
 
     const reply = "Hello 👋 Thanks for messaging!";
 
