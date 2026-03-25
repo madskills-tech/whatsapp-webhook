@@ -59,6 +59,11 @@ console.log("Saved in DB:", text);
   res.sendStatus(200);
 });
 
+app.get("/messages", async (req, res) => {
+  const messages = await Message.find().sort({ timestamp: -1 });
+  res.json(messages);
+});
+
 app.listen(10000, () => {
   console.log("Server running on port 10000");
 });
