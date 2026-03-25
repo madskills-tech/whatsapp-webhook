@@ -45,12 +45,12 @@ console.log("Saved in DB:", text);
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer EAALWwvfLWxcBRLm40lcZCHfGIZBAZAp2hwOPo7ABxy7yFsaOHAeRkJ0DxjC1FoZBCplTutkQM1ZCb94nmJXlb90oKibEoZA0EZBmp8JOogYojB6aenLaMlBnDdLecZAsk3SzgXwy11jbF7sN7cL5c7LXpt4DZBBKDM2Czqr4gV2Ev8WvyuLcIcOVFrkLE6DxZCh8o7UKIbJEZArMxSariECA29gpDDS9YDreiexkyCc1VZBPTuofBZCnMplNGx5CUcZBaFa50oFH6DCqZBnQJX82lcNnZCrhbruj6XAZD",
+          Authorization: "Bearer EAALWwvfLWxcBRDKOQCvzyXtJcTarmRny202UPiempWOlhqlScRwsiiDX5Qb0LbAQJ5ZCKRm5YwiQqY5zJmdhJXof2l1BKldJ5iRDfp2tJSa8hoynYiSM3sHtfuoSy4l5HXlIPyseRsZBq4sCHcAZApZCxXZBwGkVodjycnagJyZCF6k6t5WlDUDjnS4Ajmbm3wGejnzFvrP3ZAqEZB3SEdUcOWaAcm21rZA9YSKugwrxKmtL22NxCo6ZBv7AZA9TKLnreBlGTj6VaIJWAhfISPSYZC31CDz3,
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
-          to: from,
-          text: { body: reply },
+          to: to,
+          text: { body: message },
         }),
       });
 
