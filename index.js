@@ -14,7 +14,11 @@ const Message = mongoose.model(
 const express = require("express");
 const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
+const cors = require("cors");
+
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.post("/webhook", async (req, res) => {
