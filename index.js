@@ -46,10 +46,11 @@ console.log("Saved in DB:", text);
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer EAALWwvfLWxcBRKu0byiDOYTaNbV74QZC9yBnvW86fFAzamjQ49W3d9Gj6p3nv7qjEDTKTk8ZAnWof2xl8bznJpcrk9KkhyGJiFtHrTU9x27skzqmkaSR98MPwuY9rwCgcMkAsaEzi8ZAJYdlRNCfGNSxsPiceXfJrkF97c8POb6U1Y99L08TH9NtzYQAs1cbbnRKZABWOEmb6iBTYdGXzkPt5ZANKHnWZCuFM8ukYOZCpo3hsmmxlI8goQmhyr0rnpqgOaOjDFjpmFlQn0SNpNopK7Q"
+       },
         body: JSON.stringify({
           messaging_product: "whatsapp",
           to: from,
-          text: { body: message },
+          text: { body: reply },
         }),
       });
 
