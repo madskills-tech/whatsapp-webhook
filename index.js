@@ -38,7 +38,7 @@ await Message.create({
 
 console.log("Saved in DB:", text);
 
-    const reply = "Hello 👋 Thanks for messaging!";
+    const reply = "Hello 👋 Thanks for messaging, Our agent will be in touch with you shortly!";
 
     try {
       await fetch("https://graph.facebook.com/v18.0/959309777275020/messages", {
