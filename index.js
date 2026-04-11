@@ -48,11 +48,11 @@ app.post("/webhook", async (req, res) => {
     const reply = "Hello 👋 Thanks for messaging, Please send your inquiry. Our agent will contact you shortly!";
 
     try {
-      const response = await fetch(`https://graph.facebook.com/v22.0/${959309777275020}/messages`, {
+      const response = await fetch(`https://graph.facebook.com/v22.0/${PHONE_NUMBER_ID}/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${EAALWwvfLWxcBRFLRljuJ2irlywu0ZBgEj6mdNV8auNOHvxPZCsVTE2N5RbN8r6QaYPzZBNdSTqNf8Q6wHc7cakdQpyjttOCBqqCjq9zMD1kt6CfsvRMt4H3gxL4oZCUQ9uJ3gJy8NL0ZC63FI0LsD54JE3NHR6clcCZCRaYszcFDebsOZCqBZCcmS7jfsZCfdg7L7UEiTtXLd22v9lvkRH0ZCdCZCH2wHOWF2vYxWV8OeCDRGCPvXNSxX1EpqFvStWzRap6ZAAETSwCfreGTz49Mi3zL18kd8QZDZD}`
+          Authorization: `Bearer ${ACCESS_TOKEN}`
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
@@ -89,11 +89,11 @@ app.post("/reply", async (req, res) => {
       return res.status(400).json({ error: "Missing to/message" });
     }
 
-    const response = await fetch(`https://graph.facebook.com/v22.0/${959309777275020}/messages`, {
+    const response = await fetch(`https://graph.facebook.com/v22.0/${PHONE_NUMBER_ID}/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${EAALWwvfLWxcBRFLRljuJ2irlywu0ZBgEj6mdNV8auNOHvxPZCsVTE2N5RbN8r6QaYPzZBNdSTqNf8Q6wHc7cakdQpyjttOCBqqCjq9zMD1kt6CfsvRMt4H3gxL4oZCUQ9uJ3gJy8NL0ZC63FI0LsD54JE3NHR6clcCZCRaYszcFDebsOZCqBZCcmS7jfsZCfdg7L7UEiTtXLd22v9lvkRH0ZCdCZCH2wHOWF2vYxWV8OeCDRGCPvXNSxX1EpqFvStWzRap6ZAAETSwCfreGTz49Mi3zL18kd8QZDZD}`
+        Authorization: `Bearer ${ACCESS_TOKEN}`
       },
       body: JSON.stringify({
         messaging_product: "whatsapp",
