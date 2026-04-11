@@ -6,7 +6,7 @@ const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fet
 const app = express();
 
 // 🔥 CONFIG (IMPORTANT)
-const ACCESS_TOKEN = "EAALWwvfLWxcBRKw7PmGE0LxV1ZCuSJByRbzDHZBZBUOAajyd53ug6ZBsaYrZCwGYPIhz9vPVQCWSAvpMMcxKhzwqnDOQwCAwlrAuXyZBE36CjH2AGkORUCvvmXxl59vcWatEGZADKA6wGxl4zcX5EVzvgVuC2mS22hdFAxr0ppFngzNMF4gaelpT2CBQNbZAOkbRATh6bfWinEEriPu0GAx9HaZANzRzhOfiwhdbexw18wQYGzx18GGvZBnDfuZAjEAAmsZAXPYIt3uWmnh3e0hKTJvTfRNalAZDZD";
+const ACCESS_TOKEN = "EAALWwvfLWxcBRFLRljuJ2irlywu0ZBgEj6mdNV8auNOHvxPZCsVTE2N5RbN8r6QaYPzZBNdSTqNf8Q6wHc7cakdQpyjttOCBqqCjq9zMD1kt6CfsvRMt4H3gxL4oZCUQ9uJ3gJy8NL0ZC63FI0LsD54JE3NHR6clcCZCRaYszcFDebsOZCqBZCcmS7jfsZCfdg7L7UEiTtXLd22v9lvkRH0ZCdCZCH2wHOWF2vYxWV8OeCDRGCPvXNSxX1EpqFvStWzRap6ZAAETSwCfreGTz49Mi3zL18kd8QZDZD";
 const PHONE_NUMBER_ID = "959309777275020";
 
 // 🔗 MongoDB
@@ -52,7 +52,7 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: 'Bearer ${EAALWwvfLWxcBRKw7PmGE0LxV1ZCuSJByRbzDHZBZBUOAajyd53ug6ZBsaYrZCwGYPIhz9vPVQCWSAvpMMcxKhzwqnDOQwCAwlrAuXyZBE36CjH2AGkORUCvvmXxl59vcWatEGZADKA6wGxl4zcX5EVzvgVuC2mS22hdFAxr0ppFngzNMF4gaelpT2CBQNbZAOkbRATh6bfWinEEriPu0GAx9HaZANzRzhOfiwhdbexw18wQYGzx18GGvZBnDfuZAjEAAmsZAXPYIt3uWmnh3e0hKTJvTfRNalAZDZD}'
+          Authorization: `Bearer ${EAALWwvfLWxcBRFLRljuJ2irlywu0ZBgEj6mdNV8auNOHvxPZCsVTE2N5RbN8r6QaYPzZBNdSTqNf8Q6wHc7cakdQpyjttOCBqqCjq9zMD1kt6CfsvRMt4H3gxL4oZCUQ9uJ3gJy8NL0ZC63FI0LsD54JE3NHR6clcCZCRaYszcFDebsOZCqBZCcmS7jfsZCfdg7L7UEiTtXLd22v9lvkRH0ZCdCZCH2wHOWF2vYxWV8OeCDRGCPvXNSxX1EpqFvStWzRap6ZAAETSwCfreGTz49Mi3zL18kd8QZDZD}`
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
@@ -93,7 +93,7 @@ app.post("/reply", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: 'Bearer ${EAALWwvfLWxcBRKw7PmGE0LxV1ZCuSJByRbzDHZBZBUOAajyd53ug6ZBsaYrZCwGYPIhz9vPVQCWSAvpMMcxKhzwqnDOQwCAwlrAuXyZBE36CjH2AGkORUCvvmXxl59vcWatEGZADKA6wGxl4zcX5EVzvgVuC2mS22hdFAxr0ppFngzNMF4gaelpT2CBQNbZAOkbRATh6bfWinEEriPu0GAx9HaZANzRzhOfiwhdbexw18wQYGzx18GGvZBnDfuZAjEAAmsZAXPYIt3uWmnh3e0hKTJvTfRNalAZDZD}'
+        Authorization: `Bearer ${EAALWwvfLWxcBRFLRljuJ2irlywu0ZBgEj6mdNV8auNOHvxPZCsVTE2N5RbN8r6QaYPzZBNdSTqNf8Q6wHc7cakdQpyjttOCBqqCjq9zMD1kt6CfsvRMt4H3gxL4oZCUQ9uJ3gJy8NL0ZC63FI0LsD54JE3NHR6clcCZCRaYszcFDebsOZCqBZCcmS7jfsZCfdg7L7UEiTtXLd22v9lvkRH0ZCdCZCH2wHOWF2vYxWV8OeCDRGCPvXNSxX1EpqFvStWzRap6ZAAETSwCfreGTz49Mi3zL18kd8QZDZD}`
       },
       body: JSON.stringify({
         messaging_product: "whatsapp",
