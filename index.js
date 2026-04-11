@@ -6,8 +6,8 @@ const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fet
 const app = express();
 
 // 🔥 CONFIG (IMPORTANT)
-const ACCESS_TOKEN = `Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}'
-const PHONE_NUMBER_ID = "https://graph.facebook.com/v22.0/${959309777275020}/messages";
+const ACCESS_TOKEN = "EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1";
+const PHONE_NUMBER_ID = "959309777275020";
 
 // 🔗 MongoDB
 mongoose.connect("mongodb+srv://skillsservicesdxb_db_user:7wHegUk0hWXtVBiy@cluster0.9f6r6ts.mongodb.net/?appName=Cluster0")
@@ -52,7 +52,7 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}`
+          Authorization: "Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}"
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
@@ -93,7 +93,7 @@ app.post("/reply", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}`
+        Authorization: "Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}"
       },
       body: JSON.stringify({
         messaging_product: "whatsapp",
