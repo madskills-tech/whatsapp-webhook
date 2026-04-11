@@ -1,8 +1,20 @@
 const mongoose = require("mongoose");
+const express = require("express");
+const cors = require("cors");
+const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
+const app = express();
+
+// 🔥 CONFIG (IMPORTANT)
+const ACCESS_TOKEN = "EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1";
+const PHONE_NUMBER_ID = "959309777275020";
+
+// 🔗 MongoDB
 mongoose.connect("mongodb+srv://skillsservicesdxb_db_user:7wHegUk0hWXtVBiy@cluster0.9f6r6ts.mongodb.net/?appName=Cluster0")
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
+
+// 📦 Schema
 const Message = mongoose.model(
   "Message",
   new mongoose.Schema({
@@ -11,16 +23,11 @@ const Message = mongoose.model(
     timestamp: Date
   })
 );
-const express = require("express");
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
-
-const cors = require("cors");
-
-const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// ================= WEBHOOK (AUTO REPLY) =================
 app.post("/webhook", async (req, res) => {
   console.log("Webhook hit:", JSON.stringify(req.body, null, 2));
 
@@ -30,52 +37,83 @@ app.post("/webhook", async (req, res) => {
     const from = message.from;
     const text = message.text?.body || "non-text";
 
-await Message.create({
-  from: from,
-  message: text,
-  timestamp: new Date()
-});
+    await Message.create({
+      from: from,
+      message: text,
+      timestamp: new Date()
+    });
 
-console.log("Saved in DB:", text);
+    console.log("Saved in DB:", text);
 
-    const reply = "Hello 👋 Thanks for messaging, Pls send us your inquiry And one of Our agent will be in touch with you shortly!";
+    const reply = "Hello 👋 Thanks for messaging, Please send your inquiry. Our agent will contact you shortly!";
 
     try {
-      await fetch("https://graph.facebook.com/v18.0/959309777275020/messages", {
+      const response = await fetch(`https://graph.facebook.com/v22.0/${959309777275020}/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer EAALWwvfLWxcBRFp7gVZCb5AAYm4KQYQ182dlZAiuYuADBHDbh2FoztMQuT6bP0NqZARxwUonzIOtAfX9ZAekj8MfEjbAkHkFmcS3nGNaBVGDCOA9amZAhrqF3cZCApQkEpPSFjIAfieLL8s5ZAno8YKC2qxpVqaThiLtPCTKZAc8b3nAMbXn47O7ZAbkdNSDxYuGw2BzZBCQIR5DLHIZCS0gc2zi1dckFfJKrwrBeyxtfBeuoli0pGKDXwdI6hn87suznfYAV0fUSWyWZBnvtfZCIYJsQZAM9E"
-       },
+          Authorization: `Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}`
+        },
         body: JSON.stringify({
           messaging_product: "whatsapp",
           to: from,
-          text: { body: reply },
-        }),
+          text: { body: reply }
+        })
       });
 
-      console.log("Reply sent ✅");
+      const data = await response.json();
+      console.log("Auto Reply Response:", data);
+
     } catch (err) {
-      console.log("Error:", err);
+      console.log("Auto Reply Error:", err);
     }
   }
 
   res.sendStatus(200);
 });
 
+// ================= GET MESSAGES =================
 app.get("/messages", async (req, res) => {
   const messages = await Message.find().sort({ timestamp: -1 });
   res.json(messages);
 });
+
+// ================= MANUAL REPLY (FIXED 🔥) =================
 app.post("/reply", async (req, res) => {
-  const { to, message } = req.body;
+  try {
+    const { to, message } = req.body;
 
-  console.log("Reply:", to, message);
+    console.log("Manual Reply:", to, message);
 
-  // 👉 yaha tera WhatsApp API call aayega
-  // abhi ke liye test response
-  res.json({ success: true });
+    if (!to || !message) {
+      return res.status(400).json({ error: "Missing to/message" });
+    }
+
+    const response = await fetch(`https://graph.facebook.com/v22.0/${959309777275020}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}`
+      },
+      body: JSON.stringify({
+        messaging_product: "whatsapp",
+        to: to,
+        text: { body: message }
+      })
+    });
+
+    const data = await response.json();
+    console.log("Manual Send Response:", data);
+
+    res.json(data);
+
+  } catch (err) {
+    console.error("Manual Send Error:", err);
+    res.status(500).json({ error: "Failed to send message" });
+  }
 });
+
+// ================= SERVER =================
 app.listen(10000, () => {
   console.log("Server running on port 10000");
 });
