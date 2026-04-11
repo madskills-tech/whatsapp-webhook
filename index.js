@@ -52,7 +52,7 @@ app.post("/webhook", async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}"
+          Authorization: 'Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}'
         },
         body: JSON.stringify({
           messaging_product: "whatsapp",
@@ -93,7 +93,7 @@ app.post("/reply", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}"
+        Authorization: 'Bearer ${EAALWwvfLWxcBREALC7rFZAQ4zqVNhAgNceZCB0uEq631ZCG5L7IbLLmma8RaSmhpWqMqZCX7N5Ajqjqss29EMYasY0cp8yT4UD66hoCP13ZAF0AVeSrjcFCCyIIleGacG8MPK60ee7U98sIcMBokZBYLWiY2ZC1Pt9U6BP5PwtcVQZA2tKPBtOycZB2Bl2oSn7fcuZAOfZA8ewrn4bOjdGJPvfEFkNz37dWxZCK2k2ZBuoEYW6DRr8tQWuzZBk5fwspT21Oqj6ZBsZC2jCydwxSxktPhzDD8Gbz1}'
       },
       body: JSON.stringify({
         messaging_product: "whatsapp",
