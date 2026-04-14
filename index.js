@@ -6,7 +6,7 @@ const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fet
 const app = express();
 
 // 🔥 CONFIG (IMPORTANT)
-const ACCESS_TOKEN = "EAALWwvfLWxcBRF4weXt7YXQhCo1KwLJnqZCeTHLX5gTcfBRZBT5FnPFvyoZBZAOmptb8O6kO52Yqwr7qq3Q7bA1zvxCpHTbKC4cv5Tz7ioRqwe8tcI2wIn1CJayKgzkWfR3wjnzbqXA3btBrZCD3eygyZBP9Bxqyr1ZCmY3EZCHlP5jyZA5HRmwpEegRf6NwJBoyYBTxDqbKuLxOjy0kcx4wzPuzzXpWxt6zW4qYIfxTUVPUQFErWlehjACTB1OYjC7ZB8ey8xxdlcVHZAY2kDL65CsOvdy";
+const ACCESS_TOKEN = "EAALWwvfLWxcBRBdOjHlzFCKknmucRaUNQdDC6pShO9mnOHYV9ZC4QTz8qEE4cumRJPhUEvhkPLtRtobjYJYeNEZCxCqJf7wWpQRDxd6LEHEVIZCZApgRkMENSEcEzv2x2HaqWmUizzg7kYZBmoCld2J7ZASi7G8iIwUTxuGcCrZAZBPkoTud2u9NLC1Aq0ZBsf0I0Eh7Ok8V7XB6AEBHSVEPR6CupyaoZA72bxghwonPdSmEs5AGAxuemG6h8CcUynZCAXtlbZCBgtz5rr6QeaNiSlpJ8AAk9QZDZD";
 const PHONE_NUMBER_ID = "959309777275020";
 
 // 🔗 MongoDB
